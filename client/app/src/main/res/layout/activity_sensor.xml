@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorActivity">
+
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <TextView android:layout_marginTop ="25sp"
+            android:layout_marginLeft="15sp"
+            android:text="濕度感測裝置"
+            android:textSize="30sp" />
+        <TableRow
+            android:id="@+id/hd_table"
+            android:layout_marginTop ="5sp"
+            android:layout_marginLeft="30sp">
+            <Button
+                android:id="@+id/hd_R_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/realtime"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/hd_H_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/history"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/hd_P_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/privacy"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TextView android:layout_marginTop ="25sp"
+            android:layout_marginLeft="15sp"
+            android:text="溫度感測裝置"
+            android:textSize="30sp" />
+        <TableRow
+            android:id="@+id/tp_table"
+            android:layout_marginTop ="5sp"
+            android:layout_marginLeft="30sp">
+            <Button
+                android:id="@+id/tp_R_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/realtime"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/tp_H_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/history"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/tp_P_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/privacy"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TextView android:layout_marginTop ="25sp"
+            android:layout_marginLeft="15sp"
+            android:text="心跳感測裝置"
+            android:textSize="30sp" />
+
+        <TableRow
+            android:id="@+id/hb_table"
+            android:layout_marginTop ="5sp"
+            android:layout_marginLeft="30sp">
+            <Button
+                android:id="@+id/hb_R_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/realtime"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/hb_H_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/history"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/hb_P_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/privacy"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TextView android:layout_marginTop ="25sp"
+            android:layout_marginLeft="15sp"
+            android:text="血氧感測裝置"
+            android:textSize="30sp" />
+
+        <TableRow
+            android:id="@+id/bo_table"
+            android:layout_marginTop ="5sp"
+            android:layout_marginLeft="30sp">
+            <Button
+                android:id="@+id/bo_R_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/realtime"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/bo_H_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/history"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/bo_P_Btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/privacy"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical" >-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/sensor"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:textSize="30sp"-->
+            <!--android:text="濕度感測裝置" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/hd_R_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/realtime"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/hd_H_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/history"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/hd_P_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/privacy"-->
+            <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:id="@+id/sensor2"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:textSize="30sp"-->
+            <!--android:text="溫度感測裝置" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/tp_R_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/realtime"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/tp_H_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/history"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/tp_P_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/privacy"-->
+            <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:id="@+id/sensor3"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:textSize="30sp"-->
+            <!--android:text="心跳感測裝置" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/hb_R_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/realtime"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/hb_H_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/history"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/hb_P_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/privacy"-->
+            <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:id="@+id/sensor4"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:textSize="30sp"-->
+            <!--android:text="血氧感測裝置" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/bo_R_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/realtime"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/bo_H_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/history"-->
+            <!--android:textStyle="bold" />-->
+            <!--<Button-->
+            <!--android:id="@+id/bo_P_Btn"-->
+            <!--style="?android:textAppearanceSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:text="@string/privacy"-->
+            <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+</android.support.constraint.ConstraintLayout>
