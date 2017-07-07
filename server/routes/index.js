@@ -1,7 +1,6 @@
 var express = require('express');
 var MariasqlDB = require('mariasql')
 var dateTime = require('node-datetime');
-var sha3 = require('js-sha3').sha3_512;
 
 var gsu = '2000'
 var spu = '1000'
