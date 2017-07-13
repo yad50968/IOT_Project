@@ -10,8 +10,8 @@ var spu = '1000'
 var mariaclient = new MariasqlDB({
     host:'localhost',
     port:3306,
-    user:'',
-    password:'',
+    user:'root',
+    password:'root',
     db:'iot',
     charset:'utf8'
 });
@@ -34,12 +34,12 @@ router.post('/updateToken', function(req, res) {
 
 router.post('/insertdata', function(req, res) {
     var dt = dateTime.create().format('Y-m-d H:M:S');
-    mariaclient.query("INSERT INTO health SET heartbeat = ?, time = ?", [parseFloat(req.body.heartbeat), dt]); 
+    mariaclient.query("INSERT INTO health SET heartbeat = ?, time = ?", [parseFloat(req.body.heartbeat), dt]);
     res.send("ok");
 });
 
 router.post('/gethistorydata', function(req, res) {
-    
+
     var cdata = decrypt(req.body.getdata, spu)
     var username = cdata.split("_")[0]
     var DBToken = ""
@@ -83,7 +83,7 @@ router.post('/gethistorydata', function(req, res) {
                             c++;
                             if(c == rows.length) {
                                 res.json({"data": encrypt(JSON.stringify(o), spu)});
-                            } 
+                            }
                         })
                     }
                 });
@@ -94,11 +94,11 @@ router.post('/gethistorydata', function(req, res) {
 
 
 router.post('/gatewayhistorydata', function(req, res) {
-    
+
     var data = decrypt(req.body.data, gsu)
     var jo = JSON.parse(data)
     var ja = jo["data"]
-    
+
     ja.forEach(function(item) {
         console.log(item)
         var DataType = item["DataType"]
@@ -111,7 +111,7 @@ router.post('/gatewayhistorydata', function(req, res) {
         mariaclient.query("INSERT INTO Server_sensor SET  `Value`=?, DataType=?, name=?, reportid=?, DeviceId=?, TimeStamp=?", [Value, DataType, name, reportid, DeviceId, TimeStamp], function(err, rows) {
             if (err) {
             }else {
-            }         
+            }
         });
     });
 
@@ -131,7 +131,7 @@ function encrypt(input, key) {
 
 function xor(input, key) {
     var output = [];
-    
+
     for (var i = 0; i < input.length; i++) {
         var charCode = input.charCodeAt(i) ^ key[i % key.length].charCodeAt(0);
         output.push(String.fromCharCode(charCode));
