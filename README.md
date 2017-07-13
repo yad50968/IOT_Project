@@ -7,6 +7,10 @@ If pass, user can get the token and use it to get data from Gateway.
 
 
 ### PRE SETTING
+
+* Install python , node first!
+* If you use Windows need npm install --global --production windows-build-tools
+
 1. Setting gateway/app/src/main/java/liutzuyuan/gateway/Setting.java
 
 ```
