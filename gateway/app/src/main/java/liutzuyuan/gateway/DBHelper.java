@@ -190,8 +190,7 @@ class DBHelper {
         try {
             Statement stmt = con.createStatement();
 
-            //String sql = "SELECT DataType, Value, TimeStamp FROM device_value WHERE TimeStamp >= NOW() - INTERVAL 20 MINUTE AND DataType =" + type ;
-            String sql = "SELECT DataType, Value, TimeStamp FROM device_value" ;
+            String sql = "SELECT DataType, Value, TimeStamp FROM device_value WHERE TimeStamp >= NOW() - INTERVAL 20 MINUTE AND DataType =" + type ;
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
                 try {

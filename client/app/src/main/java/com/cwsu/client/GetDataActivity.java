@@ -45,9 +45,9 @@ public class GetDataActivity extends AppCompatActivity{
     String Ku = "";
     Bundle bundle;
     RequestQueue queue;
-    TextView txtGetDataHead;
-    TextView txtSensor;
+    TextView txtGetDataHead,txtSensor,txtYaxis;
     LineChart graphSensor;
+    String sensor="",yaxis="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,9 @@ public class GetDataActivity extends AppCompatActivity{
         bundle = GetDataActivity.this.getIntent().getExtras();
         dtype = bundle.getString("datatype");
         rorh = bundle.getString("rorh");
+
         txtSensor.setText(setDataType(dtype));
+        txtYaxis.setText(setDataType2(dtype));
         if(rorh.equals("realtime")){
             txtGetDataHead.setText("即時資料");
             URL = gatewayURL + "/getdata";
@@ -83,6 +85,7 @@ public class GetDataActivity extends AppCompatActivity{
     private void initLayout(){
         txtGetDataHead = (TextView)findViewById(R.id.getdatahead);
         txtSensor = (TextView)findViewById(R.id.sensor);
+        txtYaxis = (TextView)findViewById(R.id.Yaxis);
         graphSensor = (LineChart) findViewById(R.id.graph_sensor);
         graphSensor.setDescription("");
         configCharAxis(graphSensor);
@@ -146,17 +149,30 @@ public class GetDataActivity extends AppCompatActivity{
         graphSensor.setVisibility(View.VISIBLE);
     }
 
-
     private String setDataType(String type){
         switch(type){
             case "1":
-                return "心跳感測裝置-血氧";
+                return "血氧感測裝置-血氧";
             case "2":
                 return "心跳感測裝置-心跳";
             case "3":
                 return "溫度感測裝置";
             case "4":
                 return "濕度感測裝置";
+            default:
+                return null;
+        }
+    }
+    private String setDataType2(String type){
+        switch(type){
+            case "1":
+                return "百分比";
+            case "2":
+                return "次數/分鐘";
+            case "3":
+                return "攝氏";
+            case "4":
+                return "百分比";
             default:
                 return null;
         }

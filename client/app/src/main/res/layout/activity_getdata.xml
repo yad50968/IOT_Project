@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
 
 
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <TextView
+        <TextView
                 android:id="@+id/sensor"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -17,14 +17,28 @@
                 android:textSize="30sp"
                 android:text="心跳感測裝置-血氧" />
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/graph_sensor"
-                android:layout_width="fill_parent"
-                android:layout_y="200px"
-                android:layout_height="200dip"
-                android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/Yaxis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="百分比" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/graph_sensor"
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:layout_y="200px"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/Xaxis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="時間"
+            android:textAlignment="textEnd" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
