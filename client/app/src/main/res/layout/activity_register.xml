@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <EditText
-            android:id="@+id/signup_id"
+            android:id="@+id/signup_email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -52,12 +52,12 @@
             android:hint="@string/confirmationpassword" />
 
         <EditText
-            android:id="@+id/signup_email"
+            android:id="@+id/signup_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textSize="25sp"
-            android:hint="@string/email" />
+            android:hint="@string/name" />
 
         <Button
             android:id="@+id/btn_do_signup"

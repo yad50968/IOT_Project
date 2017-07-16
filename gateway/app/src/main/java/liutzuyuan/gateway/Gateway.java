@@ -273,15 +273,19 @@ public class Gateway extends Service {
 
                         if (CB1.equals(CB3)) {
                             String token = "";
+                            String admin = "";
                             try {
                                 token = generateRandom256bit01();
                                 dbh.addOrUpdateUserToken(ID, token);
+                                admin = dbh.selectUserDataAdmin(ID);
                             } catch (NoSuchAlgorithmException e) {
                                 e.printStackTrace();
                             }
 
                             try {
+
                                 res.put("token", encrypt(token, spu));
+                                res.put("admin", encrypt(admin, spu));
                                 response.send(res);
                                 postTokenToServer(ID, token, serverURL, mQueue);
                             } catch (JSONException e) {
@@ -304,7 +308,6 @@ public class Gateway extends Service {
 
                     @Override
                     public void onRequest(AsyncHttpServerRequest request, AsyncHttpServerResponse response) {
-
                         String getdata = "";
                         int datatype = 0;
                         String[] Dspu_getdata;
@@ -324,7 +327,8 @@ public class Gateway extends Service {
                         ID = Dspu_getdata[0];
                         token = Dspu_getdata[1];
                         dbToken = dbh.selectUserToken(ID);
-
+                        System.out.println(dbToken);
+                        System.out.println(token);
                         if (dbToken.equals(token)) {
 
                             JSONObject obj = dbh.getRealTimeData(datatype);
@@ -336,6 +340,7 @@ public class Gateway extends Service {
                                 e.printStackTrace();
                             }
                         } else {
+                            System.out.println("token fail");
                             try {
                                 res.put("temperature", "auth fail");
                                 res.put("humidity", "auth fail");

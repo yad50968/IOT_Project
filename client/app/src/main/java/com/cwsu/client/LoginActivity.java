@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     private sessionManager sessionHelper;
     private String r1 = "";
     private String token = "";
+    private String isAdmin = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -389,15 +390,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                                                 public void onResponse(JSONObject responseObj) {
                                                     try {
                                                         String tmp_token = responseObj.getString("token");
+
+                                                        String tmp_isAdmin = responseObj.getString("admin");
                                                         if(tmp_token.equals("false")) {
                                                             Toast.makeText(getApplicationContext(), "authenticated fail", Toast.LENGTH_LONG).show();
                                                         } else {
                                                             token = decrypt(tmp_token, spu);
+                                                            isAdmin = decrypt(tmp_isAdmin,spu);
                                                             sessionHelper.setKu(Ku);
                                                             sessionHelper.setUserName(idText);
                                                             sessionHelper.setToken(token);
+                                                            sessionHelper.setAdmin(isAdmin);
                                                             Intent intent = new Intent();
-                                                            intent.setClass(LoginActivity.this, SensorActivity.class);
+                                                            if(isAdmin.equals("1")){
+                                                                intent.setClass(LoginActivity.this, MenuAdminActivity.class);
+                                                            }else if(isAdmin.equals("0")){
+                                                                intent.setClass(LoginActivity.this, MenuNormalActivity.class);
+                                                            }
                                                             startActivity(intent);
                                                         }
                                                     } catch (JSONException e) {

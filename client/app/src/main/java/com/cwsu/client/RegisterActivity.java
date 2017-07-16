@@ -3,7 +3,6 @@ package com.cwsu.client;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +18,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Pattern;
+
 import static com.cwsu.client.Setting.Xs;
 import static com.cwsu.client.Setting.gatewayURL;
 import static com.cwsu.client.Setting.spu;
@@ -30,10 +31,7 @@ import static util.Calculate.xor;
 public class RegisterActivity extends AppCompatActivity{
 
 
-    EditText signupId;
-    EditText signupPw;
-    EditText signupConfirmPw;
-    EditText signupEmail;
+    EditText signupEmail, signupPw, signupConfirmPw, signupName;
     Button btnDoSignup;
     RequestQueue queue;
 
@@ -56,21 +54,16 @@ public class RegisterActivity extends AppCompatActivity{
 
 
     private void initLayout() {
-
-        signupId = (EditText) findViewById(R.id.signup_id);
+        signupEmail = (EditText) findViewById(R.id.signup_email);
         signupPw = (EditText) findViewById(R.id.signup_pw);
         signupConfirmPw = (EditText) findViewById(R.id.signup_confirm_pw);
-        signupEmail = (EditText)findViewById(R.id.email) ;
+        signupName = (EditText)findViewById(R.id.signup_name) ;
         btnDoSignup = (Button) findViewById(R.id.btn_do_signup);
-
-        InputFilter[] FilterArray = new InputFilter[1];
-        FilterArray[0] = new InputFilter.LengthFilter(5); // 5 is the length i am passing
-        signupId.setFilters(FilterArray);
-        signupId.setLineSpacing(2, 1);
     }
 
 
     private void initListener() {
+
         btnDoSignup.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity{
 
                 String url = gatewayURL + "/register";
                 JSONObject request = new JSONObject();
-                final String signupIdText = signupId.getText().toString();
+                final String signupIdText = signupEmail.getText().toString();
                 String signupPwText = signupPw.getText().toString();
                 String signupConfirmPwText = signupConfirmPw.getText().toString();
                 String Ku = sha3(signupIdText + "_" + Xs + "_" + signupPwText);
@@ -105,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity{
                                             RegisterActivity.this.finish();
                                         }else{
                                             Toast.makeText(getApplicationContext(), "id already exist", Toast.LENGTH_LONG).show();
-                                            signupId.setText("");
+                                            signupEmail.setText("");
                                             signupPw.setText("");
                                             signupConfirmPw.setText("");
                                         }
@@ -131,5 +124,20 @@ public class RegisterActivity extends AppCompatActivity{
                 }
             }
         });
+    }
+
+    private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+    }
+
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() > 4;
     }
 }

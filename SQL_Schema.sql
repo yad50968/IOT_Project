@@ -26,6 +26,7 @@ CREATE TABLE `User_Data` (
   `IDX` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
   `RES` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `admin` int(11) DEFAULT 0,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

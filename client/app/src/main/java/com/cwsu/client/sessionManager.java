@@ -12,7 +12,7 @@ class sessionManager {
     private static String userNameTag = "userName";
     private static String KuTag = "Ku";
     private static String tokenTag = "token";
-
+    private static String adminTag = "admin";
 
     sessionManager(Context context){
 
@@ -35,10 +35,15 @@ class sessionManager {
         editor.putString(tokenTag, token);
         editor.commit();
     }
+    void setAdmin(String isAdmin) {
+        editor.putString(adminTag, isAdmin);
+        editor.commit();
+    }
 
     String getUserName(){
         return pref.getString(userNameTag, "not exist");
     }
     String getKu(){return pref.getString(KuTag, "not avaliable");}
     String getToken(){return pref.getString(tokenTag, "not avaliable");}
+    String getAdmin(){return pref.getString(adminTag, "not avaliable");}
 }

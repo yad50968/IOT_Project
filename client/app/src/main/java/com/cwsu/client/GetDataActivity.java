@@ -109,7 +109,6 @@ public class GetDataActivity extends AppCompatActivity{
                     public void onResponse(JSONObject responseObj) {
                         try {
                             String response = decrypt(responseObj.getString("data"), spu);
-                            System.out.println(response);
                             generateGraph(response);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -135,16 +134,14 @@ public class GetDataActivity extends AppCompatActivity{
         List<String> dateSensor = new ArrayList<>();
         List<Entry> dataSensor = new ArrayList<>();
         JSONArray sensorArr = obj.getJSONArray(dtype);
-        System.out.println(sensorArr);
         for(int i=0; i<sensorArr.length(); i++){
             dateSensor.add(sensorArr.getJSONObject(i).getString("TimeStamp"));
             dataSensor.add(new Entry(Float.parseFloat(sensorArr.getJSONObject(i).getString("Value")),i));
         }
 
         LineDataSet dataSetSensor = new LineDataSet(dataSensor, setDataType(dtype));
-        System.out.println(dataSetSensor);
         LineData ldSensor = new LineData(dateSensor,dataSetSensor);
-        System.out.println(ldSensor);
+        graphSensor.setData(ldSensor);
         graphSensor.setData(ldSensor);
         graphSensor.setVisibility(View.VISIBLE);
     }
@@ -187,7 +184,6 @@ public class GetDataActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        System.out.println(id);
         if(id==0){
             Intent intent = new Intent();
             intent.setClass(GetDataActivity.this, LoginActivity.class);

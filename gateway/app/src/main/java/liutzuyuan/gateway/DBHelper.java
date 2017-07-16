@@ -162,6 +162,24 @@ class DBHelper {
         return xpv;
     }
 
+    String selectUserDataAdmin(String ID) {
+
+        String admin = "";
+        try {
+            Statement stmt = con.createStatement();
+
+            String sql = "SELECT admin FROM User_data WHERE UserID=\"" + ID +"\"";
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                admin = rs.getString("admin");
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return admin;
+    }
+
 
     JSONObject getRealTimeData(int type) {
 
@@ -172,7 +190,8 @@ class DBHelper {
         try {
             Statement stmt = con.createStatement();
 
-            String sql = "SELECT DataType, Value, TimeStamp FROM device_value WHERE TimeStamp >= NOW() - INTERVAL 20 MINUTE AND DataType =" + type ;
+            //String sql = "SELECT DataType, Value, TimeStamp FROM device_value WHERE TimeStamp >= NOW() - INTERVAL 20 MINUTE AND DataType =" + type ;
+            String sql = "SELECT DataType, Value, TimeStamp FROM device_value" ;
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
                 try {
@@ -180,6 +199,7 @@ class DBHelper {
                     tmp.put("DataType", rs.getString("DataType"));
                     tmp.put("TimeStamp", rs.getString("TimeStamp"));
                     tmp.put("Value", rs.getString("Value"));
+                    System.out.println(tmp);
                 } catch (JSONException e){
                     e.printStackTrace();
                 }

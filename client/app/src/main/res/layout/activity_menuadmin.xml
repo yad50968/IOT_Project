@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuAdminActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="選單"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:tint="@android:color/black" />
+
+        <Button
+            android:id="@+id/bAuthorized_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="#2B5B82"
+            android:drawablePadding="16dp"
+            android:padding="10dp"
+            android:text="合法裝置列表"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/black" />
+
+        <Button
+            android:id="@+id/bBlutooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#2B5B82"
+            android:drawablePadding="16dp"
+            android:padding="10dp"
+            android:text="藍牙傳輸安全狀態檢視"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <Button
+            android:id="@+id/bManage_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#2B5B82"
+            android:drawablePadding="16dp"
+            android:padding="10dp"
+            android:text="帳號管理"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <Button
+            android:id="@+id/bManage_authorized"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#2B5B82"
+            android:drawablePadding="16dp"
+            android:padding="10dp"
+            android:text="合法用戶管理"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

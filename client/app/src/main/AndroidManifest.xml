@@ -20,6 +20,8 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".GetDataActivity"></activity>
         <activity android:name=".SensorActivity"></activity>
+        <activity android:name=".MenuAdminActivity"></activity>
+        <activity android:name=".MenuNormalActivity"></activity>
     </application>
 
 </manifest>
